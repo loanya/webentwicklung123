@@ -5,7 +5,6 @@
     margin-top: 400px;
     font-size: 30px;
 
-    /* margin: 100px 100px 100px 100px; */
 }
 
 .animatedPictures {
@@ -58,6 +57,13 @@ body {
     /*opacity: 1;*/
     color: white;
 }
+#h1_start_nach_login{
+    text-align: center;
+}
+.c_footer{
+    color: black;
+}
+
 @media (max-width: 700px) {
 
     #h1{
