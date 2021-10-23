@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <link rel="stylesheet" href="CSS_stylesheet.css">
     <meta charset="UTF-8">
@@ -8,39 +8,26 @@
 </head>
 <body>
 
-<div class="Airplanegif">
+<!-- Align durchgestrichen, obsoletes Attribut, gibt es eine bessere Lösung? -->
+<h1 align="center">Willkommen an Bord!</h1> <!-- Begrüßung nach Login-->
+
+<div class="animatedPictures"> <!-- Umbenannt-->
     <img src="Airplane.gif" width="400" height="300">
 
 </div>
 
 <div class="c1afterLogin">
-
+    <!-- Flugzeugfensterbilder mit Links verknüpft, klickt User aufs Bild wird er weitergeleitet -->
     <nav>
-        <ul>
-            <!--  <li>  spannt jedes einzelne Listenelement auf* -->
-
-            <button class="button1">
-                <a href="Karte.html">Karte</a>
-            </button>
-            <br>
-
-            <button class="button2">
-                <a href="Reise_hinzufügen.html">Reise hinzufügen</a>
-            </button>
-            <br>
-
-            <button class="button3">
-                <a href="Reise_bearbeiten.html">Reise bearbeiten</a>
-            </button>
-            <br>
-
-            <style type=text/css>
-                a:link {
-                    text-decoration: none;
-                }
-            </style>
-        </ul>
+        <a href="Karte.html"> <img src="Window1.png" width="203" height="270" style="margin-right: 20px;"> </a>
+        <a href="Reise_hinzufügen.html"> <img src="Window2.png" width="205" height="275"
+                                              style="margin-right: 20px;"></a>
+        <a href="Reise_bearbeiten.html"> <img src="Window3.png" width="207" height="276"
+                                              style="margin-right: 20px;"></a>
     </nav>
+</div>
+<div>
+    <footer>Impressum & Datenschutzerklärung</footer>
 </div>
 </body>
 </html>
