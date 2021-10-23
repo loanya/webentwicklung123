@@ -24,16 +24,6 @@
     /*font-size: 30px; */
 }
 
-
-
-@media (width: 1000px) {
-    .c1 {
-        margin-top: 100px;
-        font-size: 10px;
-    }
-
-}
-
 footer {
     position: fixed;
     padding: .6em;
@@ -67,4 +57,15 @@ body {
 #index_bild{
     /*opacity: 1;*/
     color: white;
+}
+@media (max-width: 700px) {
+
+    #h1{
+        font-size: 25px;
+    }
+    .h1_1{
+        font-size: 25px;
+    }
+
+
 }
