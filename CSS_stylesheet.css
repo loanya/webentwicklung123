@@ -45,6 +45,7 @@ label{
     text-align: center;
     font-family: cursive;
     font-size: 50px;
+
 }
 
 body {
@@ -65,8 +66,23 @@ body {
 }
 #logo {
     margin-top: 20px;
+   /* float: left; width: 32%;
+    background-color: green;
+    box-sizing: border-box; */
+
 }
-@media (max-width: 700px) {
+.flugzeugfenster{
+    justify-content: center;
+    align-items: center;
+    padding-left: 38%;
+
+}
+.flugzeugfenster_nachLogin{
+    justify-content: center;
+    align-items: center;
+    padding-left: 30%;
+}
+@media (max-width: 800px) {
     .c1{
         margin-top: 100px;
         font-size: 25px;
@@ -77,6 +93,20 @@ body {
     .h1_1{
         font-size: 25px;
     }
+    #logo{
 
+    }
 
 }
+#container{
+    /*  display: inline-flex;
+    flex-basis: auto;
+     flex-wrap: nowrap;
+     flex-shrink: 0.1;
+     justify-content: space-around;*/
+}
+.fieldset{
+   /* margin-top: 15%; */
+}
+.box { float: left; width: 32%; margin-right: 2%; padding: 20px; background: #eee; box-sizing: border-box; }
+.box:last-child { margin-right: 0; }
