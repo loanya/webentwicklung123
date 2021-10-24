@@ -63,9 +63,14 @@ body {
 .c_footer{
     color: black;
 }
-
+#logo {
+    margin-top: 20px;
+}
 @media (max-width: 700px) {
-
+    .c1{
+        margin-top: 100px;
+        font-size: 25px;
+    }
     #h1{
         font-size: 25px;
     }
