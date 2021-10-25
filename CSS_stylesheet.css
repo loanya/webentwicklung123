@@ -46,6 +46,8 @@ label{
     font-family: cursive;
     font-size: 80px;
 
+    height: 20%;
+
 
 }
 
@@ -68,6 +70,7 @@ body {
 #logo {
     margin-top: 20px;
     width: 20%;
+    height: 20%;
 
 
    /* float: left; width: 32%;
@@ -76,12 +79,6 @@ body {
 
 }
 .flugzeugfenster{
-    justify-content: center;
-    align-items: center;
-    padding-left: 38%;
-
-}
-.flugzeugfenster_nachLogin{
     justify-content: center;
     align-items: center;
     padding-left: 30%;
@@ -118,6 +115,7 @@ body {
 }
 .pseudo{
     width: 20%;
+    height: 20%;
 }
 /*.box { float: left; width: 32%; margin-right: 2%; padding: 20px; background: #eee; box-sizing: border-box; }
 .box:last-child { margin-right: 0; } */
