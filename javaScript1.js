@@ -13,7 +13,7 @@ function abfrage(){
         window.alert((pwInput.value))
         window.alert("E-Mail und Passwort stimmen nicht überein")
     }
-    window.alert("123")
+
 }
 const input = document.querySelector('#password')
 input.addEventListener('keyup', () =>{
