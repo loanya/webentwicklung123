@@ -1,0 +1,21 @@
+function abfrage(){
+
+    const mail = "huehne@htw-berlin.de"
+    const passwort= "hunter2"
+    var pwInput = document.querySelector('#password')
+    var mailInput = document.querySelector('#E-mail')
+    if (mail == mailInput.value && passwort== pwInput.value){
+
+        window.location ="Startseite_nach_Login.html"
+
+    }
+    else{
+        window.alert((pwInput.value))
+        window.alert("E-Mail und Passwort stimmen nicht überein")
+    }
+    window.alert("123")
+}
+const input = document.querySelector('#password')
+input.addEventListener('keyup', () =>{
+    console.log(input.value.length)
+})
