@@ -4,9 +4,9 @@
     <link rel="stylesheet" href="CSS_stylesheet.css">
     <meta charset="UTF-8">
     <title>Reise hinzufügen</title>
-<script>window.onload = function (){
-    displayData();
-}</script>
+    <script>window.onload = function () {
+        displayData();
+    }</script>
 </head>
 <body>
 <div class="c_header">
@@ -24,10 +24,8 @@
     var alleLänder = []
     const loadData = async () => {
         const data = await fetch('https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_admin_0_countries.geojson');
-        //     window.alert("hi")
         return data.json();
     }
-    //  window.alert("hi2")
     const displayData = async () => {
         const geoJ = await loadData();
         const filteredData = {
@@ -35,18 +33,15 @@
             features: geoJ.features.filter(feature =>
                 !countries3.includes(feature.properties.admin))
         };
-        //   window.alert(filteredData.features[0].properties.admin)
-        // L.geoJ(filteredData).addTo(mymap);
         for (let i = 0; i < 241; i++) {
             alleLänder.push(filteredData.features[i].properties.admin)
         }
-         window.alert(alleLänder)
         dataL();
     }
 </script>
 <script> function dataL() {
     for (let i = 0; i < 241; i++) {
-            lL.innerHTML += `
+        lL.innerHTML += `
                      <option value=${alleLänder[i]}>
      `
     }
@@ -155,7 +150,6 @@
 <script type="text/javascript">
     const inpKey = document.getElementById('Name');
     const reiseland = document.getElementById('reiseland');
-
     const land = document.getElementById('Land');
     const date1 = document.getElementById('Startdatum');
     const date2 = document.getElementById('Enddatum');
@@ -163,13 +157,15 @@
 
     button.onclick = function () {
         const key = inpKey.value;
-        const values = [inpKey.value, land.value, date1.value, date2.value,reiseland.value]
-        besuchteLänder.push(reiseland.value)
-        window.alert(besuchteLänder)
+        const values = [inpKey.value, land.value, date1.value, date2.value, reiseland.value]
+        var besuchteLänder = []
         console.log(key);
         console.log(values);
-        //  Karte.countries.push('RU')
         localStorage.setItem(key, values);
+        var speicher = localStorage.getItem("besL")
+        besuchteLänder.push(speicher)
+        besuchteLänder.push(reiseland.value)
+        localStorage.setItem("besL", besuchteLänder)
     }
 </script>
 <!--

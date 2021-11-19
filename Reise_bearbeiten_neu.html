@@ -20,12 +20,13 @@
     <legend>Ihre Reisen:</legend>
     <div id="output">
         <script>
-            var array = []
             for (let i = 0; i < localStorage.length; i++) {
                 const key = localStorage.key(i)
-      //        if (key != "LK"){
-        //        }
-                output.innerHTML += `${key}:<input name="group1" tag="bearbeiten" type="radio" id="idReisewahl${i}">Reise waehlen<br>`
+                if ((key != "besL")) {
+                    output.innerHTML += `${key}:<input name="group1" tag="bearbeiten" type="radio" id="idReisewahl${i}">Reise waehlen ${i}<br>`
+                }
+
+                //  output.innerHTML += `${key}:<input name="group1" tag="bearbeiten" type="radio" id="idReisewahl${i}">Reise waehlen<br>`
             }
         </script>
         <button onclick="ausklappen()" id="buttonBearbeiten">Ausgewählte Reise bearbeiten</button>
@@ -106,21 +107,25 @@
     <footer class="c_footer">Impressum & Datenschutzerklärung</footer>
 </div>
 <script>function bearbeitenF() {
-
+    window.alert("hier")
 
     for (let i = 0; i < localStorage.length; i++) {
+        //  window.alert(localStorage.length)
+        window.alert("eins")
+        window.alert(i)
         var b1 = document.getElementById("idReisewahl" + i)
-
-
-        if (b1.checked == true) {
-            window.alert("hier4")
-
-            localStorage.removeItem(localStorage.key(i))
-            window.alert("1")
-            neuErstellen()
-            window.alert("2")
-            location.reload()
-        } else {
+        window.alert("drei")
+        window.alert(i)
+        window.alert(b1)
+        if (b1 != null) {
+            if (b1.checked == true) {
+                window.alert("zwei")
+                window.alert(i)
+                localStorage.removeItem(localStorage.key(i))
+                neuErstellen()
+                location.reload()
+            } else {
+            }
         }
     }
 }
@@ -138,8 +143,8 @@
     }</script>
 <script type="text/javascript">
     function neuErstellen() {
-   //  const valuesOld = [inpKey.valued]
-     //   window.alert(localStorage.getItem('reise33'))
+        //  const valuesOld = [inpKey.valued]
+        //   window.alert(localStorage.getItem('reise33'))
         const inpKey = document.getElementById('Name');
         const land = document.getElementById('Land');
         const date1 = document.getElementById('Startdatum');

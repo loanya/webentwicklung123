@@ -38,9 +38,8 @@
         accessToken: 'your.mapbox.access.token'
     }).addTo(mymap);
 
-    const visitedCountries = ['DE', 'US', 'RU'];
-    var countries = ['DE', 'US']
-
+    const visitedCountries = localStorage.getItem("besL");
+    //var countries = ['DE', 'US']
     var myStyle = {
         "color": "#5c5c5c",
         "weight": 5,
@@ -55,7 +54,7 @@
         const filteredData = {
             ...geoJson,
             features: geoJson.features.filter(feature =>
-                !countries.includes(feature.properties.iso_a2))
+                !visitedCountries.includes(feature.properties.admin))
         };
         L.geoJSON(filteredData, {style: myStyle}).addTo(mymap);
     }
