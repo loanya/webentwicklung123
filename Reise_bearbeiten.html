@@ -5,25 +5,40 @@
     <meta charset="UTF-8">
     <title>Reise bearbeiten</title>
 
+
 </head>
 <body>
 <div class="c_header">
     <div id="logo">
         <img alt="self-Logo" src="Reiselogo.png" width="60%" height="80%">
-        <!-- <img alt="self-Logo" src="Reiselogo.png" width="216" height="200"> -->
     </div>
     <div>
         <h1 class="h1_1">Eine Reise bearbeiten oder löschen</h1>
     </div>
     <div class="pseudo"></div>
 </div>
+<fieldset>
+    <legend>Ihre Reisen:</legend>
+    <div id="output">
+        <script>
+            var array = []
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i)
+                output.innerHTML += `${key}:<input name="group2" tag="bearbeiten" type="radio" id="bea + ${i}  ">Reise bearbeiten <input name="group1" tag="loeschen" type="radio" id="loe${i}"/>Reise löschen<label for="s" id="elem"></label><br>`
 
+            }
+        </script>
+        <button onclick="fn1()" id="buttonWeiter">Weiter</button>
+    </div>
+</fieldset>
 <fieldset class="fieldset">
     <legend class="bearbeitenBox1">Reise bearbeiten</legend>
-    <label for="Auswählen">
+    <label for="auswahl">
         Wählen sie die Reise:&nbsp&nbsp
-    </label><select name="Auswählen" id="Auswählen">
-    <option value="Reise1">Reise 1 </option>
+    </label><select name="Auswählen" id="auswahl">
+
+    <option value="2">'$['</option>
+    <option value="Reise1">t</option>
     <option value="Reise2">Reise 2</option>
     <option value="Reise3">Reise 3</option>
 </select>
@@ -35,10 +50,11 @@
         Ihr Reiseland: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&ensp; <input name="ld" id="Land" placeholder="abc">
     </label><br>
     <label for="Startdatum">
-        Ihr Startdatum:&nbsp; &nbsp; &nbsp; &nbsp;&ensp; &ensp; <input name="SD" id="Startdatum" placeholder="xyz"  required type="date">
+        Ihr Startdatum:&nbsp; &nbsp; &nbsp; &nbsp;&ensp; &ensp; <input name="SD" id="Startdatum" placeholder="xyz"
+                                                                       required type="date">
     </label><br>
     <label for="Enddatum">
-        Ihr Reiseenddatum: &ensp;&ensp; <input name="ED" id="Enddatum" placeholder="xyz"  required type="date">
+        Ihr Reiseenddatum: &ensp;&ensp; <input name="ED" id="Enddatum" placeholder="xyz" required type="date">
     </label><br>
     <input type="submit">
 </fieldset>
@@ -62,5 +78,25 @@
 <div>
     <footer class="c_footer">Impressum & Datenschutzerklärung</footer>
 </div>
+<script>function fn1() {
+    var b1 = document.getElementById("bea")
+    window.alert("ye11")
+
+    if (b1.checked == true) {
+        window.alert("ye")
+    } else {
+        window.alert("hä")
+    }
+
+}</script>
+<!--
+const auswaehlen = document.getElementById('auswahl');
+auswaehlen.onclick = function () {
+for (let i = 0; i < localStorage.length; i++) {
+const key = localStorage.key(i)
+output.innerHTML += `${key}:<input type="radio"/> <label></label><br>`
+}
+output.innerHTML += `<input type="submit">`
+} -->
 </body>
 </html>

@@ -22,24 +22,22 @@
 
     <fieldset>
         <legend class="bearbeitenBox1">Reise hinzufügen</legend>
-        <label for="Name1">
-            Der Name ihrer Reise: <input name="ld" id="Name1" placeholder="abc" required>
+        <label for="Name">
+            Der Name ihrer Reise: <input class="field" name="ld" id="Name" placeholder="abc" required>
         </label><br>
         <label for="Land">
-            Ihr Reiseland: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&ensp; <input name="ld" id="Land" placeholder="abc"
+            Ihr Reiseland: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&ensp; <input class="field" name="ld" id="Land" placeholder="abc"
                                                                                   required>
         </label><br>
         <label for="Startdatum">
-            Ihr Startdatum:&nbsp; &nbsp; &nbsp; &nbsp;&ensp; &ensp; <input name="SD" id="Startdatum" placeholder="xyz"
+            Ihr Startdatum:&nbsp; &nbsp; &nbsp; &nbsp;&ensp; &ensp; <input class="field" name="SD" id="Startdatum" placeholder="xyz"
                                                                            required type="date">
         </label><br>
         <label for="Enddatum">
-            Ihr Reiseenddatum: &ensp;&ensp; <input name="ED" id="Enddatum" placeholder="xyz" required type="date">
+            Ihr Reiseenddatum: &ensp;&ensp; <input class="field" name="ED" id="Enddatum" placeholder="xyz" required type="date">
         </label><br>
-        <input type="submit">
+        <input type="submit" id="buttonInsert">
     </fieldset>
-
-
 </form>
 <div class="c_afterLogin">
     <!-- Flugzeugfensterbilder mit Links verknüpft, klickt User aufs Bild wird er weitergeleitet -->
@@ -52,5 +50,23 @@
 <div>
     <footer class="c_footer">Impressum & Datenschutzerklärung</footer>
 </div>
+<script type="text/javascript">
+    const inpKey = document.getElementById('Name');
+    const land = document.getElementById('Land');
+    const date1 = document.getElementById('Startdatum');
+    const date2 = document.getElementById('Enddatum');
+    const button = document.getElementById('buttonInsert')
+
+    button.onclick = function (){
+        const key = inpKey.value;
+        const values = [inpKey.value,land.value, date1.value, date2.value]
+        console.log(key);
+        console.log(values);
+
+        localStorage.setItem(key,values);
+    }
+</script>
+
+
 </body>
 </html>
