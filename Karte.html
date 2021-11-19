@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <link rel="stylesheet" href="CSS_stylesheet.css">
     <meta charset="UTF-8">
     <title>Ihre Reisekarte</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""
+    />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin="">
+    </script>
 
 </head>
 <body>
-<img src="weltkarte.jpeg" alt="aM">
+<div id="map" style="height: 500px"></div>
 <div class="c_afterLogin">
-    <!-- Flugzeugfensterbilder mit Links verknüpft, klickt User aufs Bild wird er weitergeleitet -->
     <div class="flugzeugfenster">
         <a href="Karte.html"> <img src="Window1.png" width=20% height=20%> </a>
         <a href="Reise_hinzufügen.html"> <img src="Window2.png" width=20% height=20%></a>
@@ -18,7 +26,41 @@
 </div>
 <div>
     <footer class="c_footer">Impressum & Datenschutzerklärung</footer>
-
 </div>
+<script>
+    const mymap = L.map('map').setView([51.505, -0.09], 13);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 4,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'your.mapbox.access.token'
+    }).addTo(mymap);
+
+    const visitedCountries = ['DE', 'US', 'RU'];
+
+    const loadData = async () => {
+        const data = await fetch('https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_admin_0_countries.geojson');
+        return data.json();
+    }
+
+    var myStyle = {
+        "color": "#5c5c5c",
+        "weight": 5,
+        "opacity": 0.95
+    }
+    const displayData = async () => {
+        const geoJson = await loadData();
+        const filteredData = {
+            ...geoJson,
+            features: geoJson.features.filter(feature =>
+                !visitedCountries.includes(feature.properties.iso_a2))
+        };
+        L.geoJSON(filteredData, {style: myStyle}).addTo(mymap);
+    }
+    displayData();
+</script>
+
 </body>
 </html>

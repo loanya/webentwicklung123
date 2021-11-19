@@ -4,8 +4,7 @@
     <link rel="stylesheet" href="CSS_stylesheet.css">
     <meta charset="UTF-8">
     <title>Reise bearbeiten</title>
-
-
+    <script src="ausklappenReiseBearbeiten.js"></script>
 </head>
 <body>
 <div class="c_header">
@@ -25,16 +24,38 @@
             for (let i = 0; i < localStorage.length; i++) {
                 const key = localStorage.key(i)
                 output.innerHTML += `${key}:<input name="group1" tag="bearbeiten" type="radio" id="idReisewahl${i}">Reise waehlen<br>`
-
             }
         </script>
-        <button onclick="bearbeitenF();loeschenF()" id="buttonWeiter">Weiter</button>
-        <button onclick="bearbeitenF()" id="buttonBearbeiten">Ausgewählte Reise bearbeiten</button>
-
+        <button onclick="ausklappen()" id="buttonBearbeiten">Ausgewählte Reise bearbeiten</button>
         <button onclick="loeschenF()" id="buttonLoeschen">Ausgewählte Reise löschen</button>
-
     </div>
 </fieldset>
+<div id="zuBearbeiten">
+    <script>function ausklappen() {
+        zuBearbeiten.innerHTML += `
+<fieldset>
+        <legend className="bearbeitenAusklappen">Reise bearbeiten</legend>
+
+     <label for="Name1">
+        Der neue Name ihrer Reise: <input name="ld" id="Name" placeholder="abc">
+    </label><br>
+    <label for="Land">
+        Ihr Reiseland: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&ensp; <input name="ld" id="Land" placeholder="abc">
+    </label><br>
+    <label for="Startdatum">
+        Ihr Startdatum:&nbsp; &nbsp; &nbsp; &nbsp;&ensp; &ensp; <input name="SD" id="Startdatum" placeholder="xyz"
+                                                                       required type="date">
+    </label><br>
+    <label for="Enddatum">
+        Ihr Reiseenddatum: &ensp;&ensp; <input name="ED" id="Enddatum" placeholder="xyz" required type="date">
+    </label><br>
+    <input type="submit" id="buttonBearbeiten" onclick="bearbeitenF()">
+        </fieldset>
+`
+    }
+    </script>
+</div>
+<!--
 <fieldset class="fieldset">
     <legend class="bearbeitenBox1">Reise bearbeiten</legend>
     <label for="auswahl">
@@ -70,15 +91,14 @@
     </label>
     <input type="submit">
 </fieldset>
+-->
 <div class="c_afterLogin">
-    <!-- Flugzeugfensterbilder mit Links verknüpft, klickt User aufs Bild wird er weitergeleitet -->
     <div class="flugzeugfenster">
         <a href="Karte.html"> <img src="Window1.png" width=20% height=20%> </a>
         <a href="Reise_hinzufügen.html"> <img src="Window2.png" width=20% height=20%></a>
         <a href="Reise_bearbeiten.html"> <img src="Window3.png" width=20% height=20%></a>
     </div>
 </div>
-
 <div>
     <footer class="c_footer">Impressum & Datenschutzerklärung</footer>
 </div>
@@ -86,9 +106,9 @@
     for (let i = 0; i < localStorage.length; i++) {
         var b1 = document.getElementById("idReisewahl" + i)
         if (b1.checked == true) {
-            window.alert("checked true" + "aa")
+            localStorage.removeItem(localStorage.key(i))
+            neuErstellen()
         } else {
-            window.alert("checked falseB")
         }
     }
 }
@@ -98,25 +118,26 @@
         for (let i = 0; i < localStorage.length; i++) {
             var b2 = document.getElementById("idReisewahl" + i)
             if (b2.checked == true) {
-                window.alert("checked trueL" + "ll")
-
                 localStorage.removeItem(localStorage.key(i))
                 location.reload()
             } else {
-                window.alert("checked falseL")
             }
         }
-        <!--Weitere Funktion fürs löschen -->
-
     }</script>
-<!--
-const auswaehlen = document.getElementById('auswahl');
-auswaehlen.onclick = function () {
-for (let i = 0; i < localStorage.length; i++) {
-const key = localStorage.key(i)
-output.innerHTML += `${key}:<input type="radio"/> <label></label><br>`
-}
-output.innerHTML += `<input type="submit">`
-} -->
+<script type="text/javascript">
+    function neuErstellen() {
+        const inpKey = document.getElementById('Name');
+        const land = document.getElementById('Land');
+        const date1 = document.getElementById('Startdatum');
+        const date2 = document.getElementById('Enddatum');
+        const button = document.getElementById('buttonBearbeiten')
+        const key = inpKey.value;
+        const values = [inpKey.value, land.value, date1.value, date2.value]
+        console.log(key);
+        console.log(values);
+        localStorage.setItem(key, values);
+        location.reload()
+    }
+</script>
 </body>
 </html>
