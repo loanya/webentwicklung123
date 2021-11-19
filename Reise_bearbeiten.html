@@ -24,11 +24,11 @@
             var array = []
             for (let i = 0; i < localStorage.length; i++) {
                 const key = localStorage.key(i)
-                output.innerHTML += `${key}:<input name="group2" tag="bearbeiten" type="radio" id="bea + ${i}  ">Reise bearbeiten <input name="group1" tag="loeschen" type="radio" id="loe${i}"/>Reise löschen<label for="s" id="elem"></label><br>`
+                output.innerHTML += `${key}:<input name="group1" tag="bearbeiten" type="radio" id="bea${i}">Reise bearbeiten <input name="group1" tag="loeschen" type="radio" id="loe"/>Reise löschen<label for="s" id="elem"></label><br>`
 
             }
         </script>
-        <button onclick="fn1()" id="buttonWeiter">Weiter</button>
+        <button onclick="bearbeitenF()" id="buttonWeiter">Weiter</button>
     </div>
 </fieldset>
 <fieldset class="fieldset">
@@ -78,16 +78,38 @@
 <div>
     <footer class="c_footer">Impressum & Datenschutzerklärung</footer>
 </div>
-<script>function fn1() {
-    var b1 = document.getElementById("bea")
-    window.alert("ye11")
+<script>function bearbeitenF() {
+    for (let i = 0; i < localStorage.length; i++) {
+        var b1 = document.getElementById("bea" + i)
+        if (b1.checked == true) {
+            window.alert("checked true" + "aa")
+        } else {
+            window.alert("checked false")
+        }
+        var b2 = document.getElementById("loe" + i)
+        if (b2.checked == true) {
+            window.alert("checked trueL" + "ll")
 
-    if (b1.checked == true) {
-        window.alert("ye")
-    } else {
-        window.alert("hä")
+            localStorage.removeItem(i)
+        } else {
+            window.alert("checked falseL")
+        }
     }
 
+
+    function loeschenF() {
+        for (let i = 0; i < localStorage.length; i++) {
+            var b1 = document.getElementById("loe" + i)
+            if (b1.checked == true) {
+                window.alert("checked trueL" + "ll")
+
+                localStorage.removeItem(i)
+            } else {
+                window.alert("checked falseL")
+            }
+        }
+        <!--Weitere Funktion fürs löschen -->
+    }
 }</script>
 <!--
 const auswaehlen = document.getElementById('auswahl');

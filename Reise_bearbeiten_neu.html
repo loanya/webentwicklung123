@@ -1,10 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="CSS_stylesheet.css">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Reise bearbeiten</title>
+
+
 </head>
 <body>
+<div class="c_header">
+    <div id="logo">
+        <img alt="self-Logo" src="Reiselogo.png" width="60%" height="80%">
+    </div>
+    <div>
+        <h1 class="h1_1">Eine Reise bearbeiten oder löschen</h1>
+    </div>
+    <div class="pseudo"></div>
+</div>
+<fieldset>
+    <legend>Ihre Reisen:</legend>
+    <div id="output">
+        <script>
+            var array = []
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i)
+                output.innerHTML += `${key}:<input name="group1" tag="bearbeiten" type="radio" id="idReisewahl${i}">Reise waehlen<br>`
 
+            }
+        </script>
+        <button onclick="bearbeitenF();loeschenF()" id="buttonWeiter">Weiter</button>
+        <button onclick="bearbeitenF()" id="buttonBearbeiten">Ausgewählte Reise bearbeiten</button>
+
+        <button onclick="loeschenF()" id="buttonLoeschen">Ausgewählte Reise löschen</button>
+
+    </div>
+</fieldset>
+<fieldset class="fieldset">
+    <legend class="bearbeitenBox1">Reise bearbeiten</legend>
+    <label for="auswahl">
+        Wählen sie die Reise:&nbsp&nbsp
+    </label><select name="Auswählen" id="auswahl">
+
+    <option value="2">'$['</option>
+    <option value="Reise1">t</option>
+    <option value="Reise2">Reise 2</option>
+    <option value="Reise3">Reise 3</option>
+</select>
+    <br>
+    <label for="Name1" class="fieldset">
+        Der Name ihrer Reise: <input name="ld" id="Name1" placeholder="abc">
+    </label><br>
+    <label for="Land">
+        Ihr Reiseland: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&ensp; <input name="ld" id="Land" placeholder="abc">
+    </label><br>
+    <label for="Startdatum">
+        Ihr Startdatum:&nbsp; &nbsp; &nbsp; &nbsp;&ensp; &ensp; <input name="SD" id="Startdatum" placeholder="xyz"
+                                                                       required type="date">
+    </label><br>
+    <label for="Enddatum">
+        Ihr Reiseenddatum: &ensp;&ensp; <input name="ED" id="Enddatum" placeholder="xyz" required type="date">
+    </label><br>
+    <input type="submit">
+</fieldset>
+<br><br><br>
+<fieldset>
+    <legend class="bearbeitenBox1">Reise löschen</legend>
+    <label for="Name">
+        Der Name ihrer Reise: <input name="ld" id="Name" placeholder="abc">
+    </label>
+    <input type="submit">
+</fieldset>
+<div class="c_afterLogin">
+    <!-- Flugzeugfensterbilder mit Links verknüpft, klickt User aufs Bild wird er weitergeleitet -->
+    <div class="flugzeugfenster">
+        <a href="Karte.html"> <img src="Window1.png" width=20% height=20%> </a>
+        <a href="Reise_hinzufügen.html"> <img src="Window2.png" width=20% height=20%></a>
+        <a href="Reise_bearbeiten.html"> <img src="Window3.png" width=20% height=20%></a>
+    </div>
+</div>
+
+<div>
+    <footer class="c_footer">Impressum & Datenschutzerklärung</footer>
+</div>
+<script>function bearbeitenF() {
+    for (let i = 0; i < localStorage.length; i++) {
+        var b1 = document.getElementById("idReisewahl" + i)
+        if (b1.checked == true) {
+            window.alert("checked true" + "aa")
+        } else {
+            window.alert("checked falseB")
+        }
+    }
+}
+</script>
+<script>
+    function loeschenF() {
+        for (let i = 0; i < localStorage.length; i++) {
+            var b2 = document.getElementById("idReisewahl" + i)
+            if (b2.checked == true) {
+                window.alert("checked trueL" + "ll")
+
+                localStorage.removeItem(localStorage.key(i))
+                location.reload()
+            } else {
+                window.alert("checked falseL")
+            }
+        }
+        <!--Weitere Funktion fürs löschen -->
+
+    }</script>
+<!--
+const auswaehlen = document.getElementById('auswahl');
+auswaehlen.onclick = function () {
+for (let i = 0; i < localStorage.length; i++) {
+const key = localStorage.key(i)
+output.innerHTML += `${key}:<input type="radio"/> <label></label><br>`
+}
+output.innerHTML += `<input type="submit">`
+} -->
 </body>
 </html>
