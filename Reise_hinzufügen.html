@@ -10,7 +10,6 @@
 <div class="c_header">
     <div id="logo">
         <img alt="self-Logo" src="Reiselogo.png" width="60%" height="80%">
-        <!-- <img alt="self-Logo" src="Reiselogo.png" width="216" height="200"> -->
     </div>
     <div>
         <h1 class="h1_1">Eine Reise hinzufügen</h1>
@@ -22,6 +21,21 @@
 
     <fieldset>
         <legend class="bearbeitenBox1">Reise hinzufügen</legend>
+   <!--     <label> Vogelart
+            <input type="search" list="Vögel" />
+            <datalist id="Vögel">
+                <option value="Amsel">
+                <option value="Buntspecht">
+                <option value="Drossel">
+                <option value="Eisvogel">
+                <option value="Fink">
+                <option value="Graugans">
+                <option value="Meise">
+                <option value="Spatz">
+                <option value="Specht">
+            </datalist>
+        </label>
+        <button>finden!</button> <br> -->
         <label for="Name">
             Der Name ihrer Reise: <input class="field" name="ld" id="Name" placeholder="abc" required>
         </label><br>
@@ -62,11 +76,9 @@
         const values = [inpKey.value,land.value, date1.value, date2.value]
         console.log(key);
         console.log(values);
-
+        Karte.countries.push('RU')
         localStorage.setItem(key,values);
     }
 </script>
-
-
 </body>
 </html>
