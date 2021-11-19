@@ -23,6 +23,8 @@
             var array = []
             for (let i = 0; i < localStorage.length; i++) {
                 const key = localStorage.key(i)
+      //        if (key != "LK"){
+        //        }
                 output.innerHTML += `${key}:<input name="group1" tag="bearbeiten" type="radio" id="idReisewahl${i}">Reise waehlen<br>`
             }
         </script>
@@ -31,6 +33,7 @@
     </div>
 </fieldset>
 <div id="zuBearbeiten">
+
     <script>function ausklappen() {
         zuBearbeiten.innerHTML += `
 <fieldset>
@@ -103,11 +106,20 @@
     <footer class="c_footer">Impressum & Datenschutzerklärung</footer>
 </div>
 <script>function bearbeitenF() {
+
+
     for (let i = 0; i < localStorage.length; i++) {
         var b1 = document.getElementById("idReisewahl" + i)
+
+
         if (b1.checked == true) {
+            window.alert("hier4")
+
             localStorage.removeItem(localStorage.key(i))
+            window.alert("1")
             neuErstellen()
+            window.alert("2")
+            location.reload()
         } else {
         }
     }
@@ -126,6 +138,8 @@
     }</script>
 <script type="text/javascript">
     function neuErstellen() {
+   //  const valuesOld = [inpKey.valued]
+     //   window.alert(localStorage.getItem('reise33'))
         const inpKey = document.getElementById('Name');
         const land = document.getElementById('Land');
         const date1 = document.getElementById('Startdatum');
