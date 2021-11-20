@@ -75,6 +75,15 @@
         var b1 = document.getElementById("idReisewahl" + i)
         if (b1 != null) {
             if (b1.checked == true) {
+                /////////////////////////////////////////////////////////////////////////////////
+                var besLlöschen = localStorage.getItem("besL")
+                //string -> object
+                var splitStringbesLlöschen = besLlöschen.split(/,/);
+                //string -> object
+                var splitAktObj = localStorage.getItem(localStorage.key(i)).split(/,/);
+                splitStringbesLlöschen.splice([splitStringbesLlöschen.indexOf(splitAktObj[1])],1)
+                localStorage.setItem("besL",splitStringbesLlöschen)
+                //////////////////////////////////////////////////////////////////////////////////////////777
                 localStorage.removeItem(localStorage.key(i))
                 neuErstellen()
                 location.reload()
@@ -91,18 +100,12 @@
                 if (b2.checked == true) {
                     /////////////////////////////////////////////////////////////////////////////////
                     var besLlöschen = localStorage.getItem("besL")
-                    var besLlöschen2 = ['Germany','Russia','Afghanistan','Australia']
-
-                    window.alert(besLlöschen)
-                    window.alert("index russ")
-                    window.alert(besLlöschen.indexOf("Germany"))
-                    // delete besLlöschen[i]
-                    besLlöschen.splice(16,7)
-                    window.alert("hi2")
-
-                    window.alert(besLlöschen)
-
-                    localStorage.setItem("besL",besLlöschen)
+                    //string -> object
+                    var splitStringbesLlöschen = besLlöschen.split(/,/);
+                    //string -> object
+                    var splitAktObj = localStorage.getItem(localStorage.key(i)).split(/,/);
+                    splitStringbesLlöschen.splice([splitStringbesLlöschen.indexOf(splitAktObj[1])],1)
+                    localStorage.setItem("besL",splitStringbesLlöschen)
                     //////////////////////////////////////////////////////////////////////////////////////////777
                     localStorage.removeItem(localStorage.key(i))
                     location.reload()
@@ -148,7 +151,6 @@
         const values = [inpKey.value, reiseland.value, date1.value, date2.value]
         //    console.log(key);
         //  console.log(values);
-        // localStorage.setItem(key, values);
         var besuchteLänder = []
         localStorage.setItem(key, values);
         var speicher = localStorage.getItem("besL")

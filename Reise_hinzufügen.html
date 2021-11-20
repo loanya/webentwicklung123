@@ -16,7 +16,9 @@
     <div>
         <h1 class="h1_1">Eine Reise hinzufügen</h1>
     </div>
-    <div class="pseudo"><button><a href="index+PW.html">Logout</a> </button></div>
+    <div class="pseudo">
+        <button><a href="index+PW.html">Logout</a></button>
+    </div>
 </div>
 <form id="ReiseHinzufügen">
     <fieldset>
@@ -25,7 +27,8 @@
             Der Name ihrer Reise: <input class="field" name="ld" id="Name" placeholder="abc" required>
         </label><br>
         <label>
-            Das Reiseland:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; <input id="reiseland" type="search" list="lL" required>
+            Das Reiseland:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; <input id="reiseland" type="search" list="lL"
+                                                                                  required>
             <datalist id="lL">
             </datalist>
         </label><br>
@@ -90,13 +93,15 @@
         const key = inpKey.value;
         const values = [inpKey.value, reiseland.value, date1.value, date2.value]
         var besuchteLänder = []
-  //      console.log(key);
-    //    console.log(values);
+        //      console.log(key);
+        //    console.log(values);
         localStorage.setItem(key, values);
         var speicher = localStorage.getItem("besL")
-        besuchteLänder.push(speicher)
         besuchteLänder.push(reiseland.value)
-        localStorage.setItem("besL", [besuchteLänder])
+        if (speicher != null) {
+            besuchteLänder.push(speicher)
+        }
+        localStorage.setItem("besL", besuchteLänder)
     }
 </script>
 </body>
