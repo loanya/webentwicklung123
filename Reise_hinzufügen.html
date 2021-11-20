@@ -18,111 +18,16 @@
     </div>
     <div class="pseudo"></div>
 </div>
-<script>
-    var countries2 = ['AW', 'DE', 'US']
-    var countries3 = []
-    var alleLänder = []
-    const loadData = async () => {
-        const data = await fetch('https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_admin_0_countries.geojson');
-        return data.json();
-    }
-    const displayData = async () => {
-        const geoJ = await loadData();
-        const filteredData = {
-            ...geoJ,
-            features: geoJ.features.filter(feature =>
-                !countries3.includes(feature.properties.admin))
-        };
-        for (let i = 0; i < 241; i++) {
-            alleLänder.push(filteredData.features[i].properties.admin)
-        }
-        dataL();
-    }
-</script>
-<script> function dataL() {
-    for (let i = 0; i < 241; i++) {
-        lL.innerHTML += `
-                     <option value=${alleLänder[i]}>
-     `
-    }
-}</script>
 <form id="ReiseHinzufügen">
-    <!--<label id="h1" form="ReiseHinzufügen">Hier bitte erforderliche Daten eingeben</label>-->
     <fieldset>
         <legend class="bearbeitenBox1">Reise hinzufügen</legend>
-        <!--     <script>
-                 function lL() {
-                 //    window.alert("1")
-                     for (let i = 0; i < 4; i++) {
-                       //    window.alert("2")
-            //               <option value="Amsel2"> </option>
-                         lL2.innerHTML += ` ss
-
-                                     <option value="Amsel4"> </option>
-
-     `
-                     }
-        }
-        </script>-->
-        <label>
-            ReiselandListe <input onclick="lL()" id="reiseland" type="search" list="lL">
-            <datalist id="lL">
-            </datalist>
-        </label><br>
-        <!--
-               <script>function ausklappen() {
-        zuBearbeiten.innerHTML += `
-<fieldset>
-        <legend className="bearbeitenAusklappen">Reise bearbeiten</legend>
-
-     <label for="Name1">
-        Der neue Name ihrer Reise: <input name="ld" id="Name" placeholder="abc">
-    </label><br>
-
-    <label for="Enddatum">
-        Ihr Reiseenddatum: &ensp;&ensp; <input name="ED" id="Enddatum" placeholder="xyz" required type="date">
-    </label><br>
-    <input type="submit" id="buttonBearbeiten" onclick="bearbeitenF()">
-        </fieldset>
-`
-    }
-    </script>
-
-
-
-                 const displayData = async () => {
-                const geoJson = await loadData();
-                const filteredData = {
-                    ...geoJson,
-                    features: geoJson.features.filter(feature =>
-                        !countries.includes(feature.properties.iso_a2))
-                };
-                L.geoJSON(filteredData, {style: myStyle}).addTo(mymap);
-            }
-            displayData();
-
-             <label> Vogelart
-                    <input type="search" list="Vögel" />
-                    <datalist id="Vögel">
-                        <option value="Amsel">
-                        <option value="Buntspecht">
-                        <option value="Drossel">
-                        <option value="Eisvogel">
-                        <option value="Fink">
-                        <option value="Graugans">
-                        <option value="Meise">
-                        <option value="Spatz">
-                        <option value="Specht">
-                    </datalist>
-                </label>
-                <button>finden!</button> <br> -->
         <label for="Name">
             Der Name ihrer Reise: <input class="field" name="ld" id="Name" placeholder="abc" required>
         </label><br>
-        <label for="Land">
-            Ihr Reiseland: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&ensp; <input class="field" name="ld" id="Land"
-                                                                                  placeholder="abc"
-                                                                                  required>
+        <label>
+            Das Reiseland:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; <input id="reiseland" type="search" list="lL" required>
+            <datalist id="lL">
+            </datalist>
         </label><br>
         <label for="Startdatum">
             Ihr Startdatum:&nbsp; &nbsp; &nbsp; &nbsp;&ensp; &ensp; <input class="field" name="SD" id="Startdatum"
@@ -141,26 +46,52 @@
     <div class="flugzeugfenster">
         <a href="Karte.html"> <img src="Window1.png" width=20% height=20%> </a>
         <a href="Reise_hinzufügen.html"> <img src="Window2.png" width=20% height=20%></a>
-        <a href="Reise_bearbeiten.html"> <img src="Window3.png" width=20% height=20%></a>
+        <a href="Reise_bearbeiten_neu.html"> <img src="Window3.png" width=20% height=20%></a>
     </div>
 </div>
 <div>
     <footer class="c_footer">Impressum & Datenschutzerklärung</footer>
 </div>
+<script>
+    var countries = []
+    var alleLänder = []
+    const loadData = async () => {
+        const data = await fetch('https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_admin_0_countries.geojson');
+        return data.json();
+    }
+    const displayData = async () => {
+        const geoJ = await loadData();
+        const filteredData = {
+            ...geoJ,
+            features: geoJ.features.filter(feature =>
+                !countries.includes(feature.properties.admin))
+        };
+        for (let i = 0; i < 241; i++) {
+            alleLänder.push(filteredData.features[i].properties.admin)
+        }
+        dataL();
+    }
+</script>
+<script> function dataL() {
+    for (let i = 0; i < 241; i++) {
+        lL.innerHTML += `
+                     <option value=${alleLänder[i]}>
+     `
+    }
+}</script>
 <script type="text/javascript">
     const inpKey = document.getElementById('Name');
     const reiseland = document.getElementById('reiseland');
-    const land = document.getElementById('Land');
     const date1 = document.getElementById('Startdatum');
     const date2 = document.getElementById('Enddatum');
     const button = document.getElementById('buttonInsert')
 
     button.onclick = function () {
         const key = inpKey.value;
-        const values = [inpKey.value, land.value, date1.value, date2.value, reiseland.value]
+        const values = [inpKey.value, reiseland.value, date1.value, date2.value]
         var besuchteLänder = []
-        console.log(key);
-        console.log(values);
+  //      console.log(key);
+    //    console.log(values);
         localStorage.setItem(key, values);
         var speicher = localStorage.getItem("besL")
         besuchteLänder.push(speicher)
@@ -168,45 +99,5 @@
         localStorage.setItem("besL", besuchteLänder)
     }
 </script>
-<!--
-    const displayData = async () => {
-        const geoJson = await loadData();
-        const filteredData = {
-            ...geoJson,
-            features: geoJson.features.filter(feature =>
-                !countries.includes(feature.properties.iso_a2))
-        };
-        L.geoJSON(filteredData, {style: myStyle}).addTo(mymap);
-    }
-    displayData();
-
-<script>
-    var countries2 = ['AW', 'DE', 'US']
-    var countries3 = []
-    var alleLänder = []
-    const loadData = async () => {
-        const data = await fetch('https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_admin_0_countries.geojson');
-        //     window.alert("hi")
-        return data.json();
-    }
-    //  window.alert("hi2")
-    const displayData = async () => {
-        const geoJ = await loadData();
-        const filteredData = {
-            ...geoJ,
-            features: geoJ.features.filter(feature =>
-                !countries3.includes(feature.properties.admin))
-        };
-
-        //   window.alert(filteredData.features[0].properties.admin)
-        // L.geoJ(filteredData).addTo(mymap);
-        for (let i = 0; i < 241; i++) {
-            alleLänder.push(filteredData.features[i].properties.admin)
-        }
-        window.alert(alleLänder)
-    }
-    displayData()
-
-</script>-->
 </body>
 </html>
