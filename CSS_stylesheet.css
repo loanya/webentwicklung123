@@ -116,6 +116,10 @@ body {
 .pseudo{
     width: 20%;
     height: 20%;
+    text-align: right;
+}
+a:link{
+    color: black;
 }
 #map { height: 75vh; }
 /*.box { float: left; width: 32%; margin-right: 2%; padding: 20px; background: #eee; box-sizing: border-box; }

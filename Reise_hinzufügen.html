@@ -16,7 +16,7 @@
     <div>
         <h1 class="h1_1">Eine Reise hinzufügen</h1>
     </div>
-    <div class="pseudo"></div>
+    <div class="pseudo"><button><a href="index+PW.html">Logout</a> </button></div>
 </div>
 <form id="ReiseHinzufügen">
     <fieldset>
@@ -66,7 +66,7 @@
             features: geoJ.features.filter(feature =>
                 !countries.includes(feature.properties.admin))
         };
-        for (let i = 0; i < 241; i++) {
+        for (let i = 0; i < filteredData.features.length; i++) {
             alleLänder.push(filteredData.features[i].properties.admin)
         }
         dataL();
@@ -96,7 +96,7 @@
         var speicher = localStorage.getItem("besL")
         besuchteLänder.push(speicher)
         besuchteLänder.push(reiseland.value)
-        localStorage.setItem("besL", besuchteLänder)
+        localStorage.setItem("besL", [besuchteLänder])
     }
 </script>
 </body>

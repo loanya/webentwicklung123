@@ -7,7 +7,7 @@ function abfrage(){
     if (mail == mailInput.value && passwort== pwInput.value){
 
         window.location ="Startseite_nach_Login.html"
-
+        window.alert("Login erfolgreich")
     }
     else{
         window.alert((pwInput.value))

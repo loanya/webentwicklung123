@@ -16,7 +16,7 @@
     <div>
         <h1 class="h1_1">Eine Reise bearbeiten oder löschen</h1>
     </div>
-    <div class="pseudo"></div>
+    <div class="pseudo"><button><a href="index+PW.html">Logout</a> </button></div>
 </div>
 <fieldset>
     <legend>Ihre Reisen:</legend>
@@ -40,7 +40,7 @@
         <legend className="bearbeitenAusklappen">Reise bearbeiten</legend>
 
      <label for="Name1">
-        Der neue Name ihrer Reise: <input name="ld" id="Name" placeholder="abc">
+        Der neue Name ihrer Reise: <input name="ld" id="Name" placeholder="abc" required>
     </label><br>
     <label>
         Das Reiseland: &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; <input id="reiseland" type="search" list="lL" required>
@@ -78,7 +78,6 @@
                 localStorage.removeItem(localStorage.key(i))
                 neuErstellen()
                 location.reload()
-            } else {
             }
         }
     }
@@ -89,18 +88,26 @@
         for (let i = 0; i < localStorage.length; i++) {
             var b2 = document.getElementById("idReisewahl" + i)
             if (b2 != null) {
-            if (b2.checked == true) {
-                var besLlöschen=localStorage.getItem("besL").valueOf()
-                window.alert(i)
-                window.alert(besLlöschen)
-                delete besLlöschen[i]
-                //besLlöschen.splice(besLlöschen.indexOf(i))
-                window.alert(besLlöschen)
+                if (b2.checked == true) {
+                    /////////////////////////////////////////////////////////////////////////////////
+                    var besLlöschen = localStorage.getItem("besL")
+                    var besLlöschen2 = ['Germany','Russia','Afghanistan','Australia']
 
-                localStorage.removeItem(localStorage.key(i))
-                location.reload()
-            } else {
-            }}
+                    window.alert(besLlöschen)
+                    window.alert("index russ")
+                    window.alert(besLlöschen.indexOf("Germany"))
+                    // delete besLlöschen[i]
+                    besLlöschen.splice(16,7)
+                    window.alert("hi2")
+
+                    window.alert(besLlöschen)
+
+                    localStorage.setItem("besL",besLlöschen)
+                    //////////////////////////////////////////////////////////////////////////////////////////777
+                    localStorage.removeItem(localStorage.key(i))
+                    location.reload()
+                }
+            }
         }
     }</script>
 <script>
@@ -117,10 +124,10 @@
             features: geoJ.features.filter(feature =>
                 !countries.includes(feature.properties.admin))
         };
-        for (let i = 0; i < 241; i++) {
+        for (let i = 0; i < filteredData.features.length; i++) {
             alleLänder.push(filteredData.features[i].properties.admin)
         }
-      //  dataL();
+        //  dataL();
     }
 </script>
 <script> function dataL() {
@@ -136,12 +143,12 @@
         const reiseland = document.getElementById('reiseland');
         const date1 = document.getElementById('Startdatum');
         const date2 = document.getElementById('Enddatum');
-     //   const button = document.getElementById('buttonBearbeiten')
+        //   const button = document.getElementById('buttonBearbeiten')
         const key = inpKey.value;
         const values = [inpKey.value, reiseland.value, date1.value, date2.value]
-    //    console.log(key);
-      //  console.log(values);
-       // localStorage.setItem(key, values);
+        //    console.log(key);
+        //  console.log(values);
+        // localStorage.setItem(key, values);
         var besuchteLänder = []
         localStorage.setItem(key, values);
         var speicher = localStorage.getItem("besL")
@@ -149,7 +156,6 @@
         besuchteLänder.push(reiseland.value)
         localStorage.setItem("besL", besuchteLänder)
         location.reload()
-
     }
 </script>
 </body>
