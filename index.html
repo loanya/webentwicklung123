@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <script src="javaScript1.js"></script>
+    <script src="javaS_Backend.js"></script>
+
+
 
 </head>
 <body  background="beach2.jpg" id="index_bild">
@@ -17,17 +20,18 @@
 
     <form id="anmelden">
         <label id="h1_navBar" form="anmelden">Hier anmelden oder registrieren</label>
-        <fieldset class="fieldset">
+        <div class="fieldset">
             <!-- <legend>Anmelden</legend> -->
             <label for="E-mail">
-                Ihre E-Mail: <input type="email" id="E-mail" placeholder="abc" required>
+                Ihre E-Mail: <input type="email" id="E-mail" name = "email" placeholder="abc" required>
             </label>
             <label for="password">
-                Ihr Passwort: <input type="password" id="password" placeholder="xyz" required>
+                Ihr Passwort: <input type="password" id="password" name = "password" placeholder="xyz" required>
             </label>
-            <input type="submit" onclick="fetch('GET http://localhost:8080')">
+            <!--<input type="submit" onclick=login("huehne@htw-berlin.de","hunter2")> -->
 
-        </fieldset>
+        </div>
+        <button type=submit onclick="abfrage2()">Einloggen</button>
     </form>
 </div>
 <div>
