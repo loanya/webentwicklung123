@@ -1,6 +1,5 @@
 //fetch('GET http://localhost/')
-const cors = require('cors')
-
+//const cors = require('cors')
 
 function abfrage2() {
     window.alert("eqredq")
@@ -11,7 +10,7 @@ function abfrage2() {
 
     const loginError = document.querySelector('.error')
 
-    const BASE_URL = "https://webtechbackend.herokuapp.com/"
+    const BASE_URL = "https://webtechbackend.herokuapp.com"
 
     const login = async (email, password) => {
 /*
@@ -23,7 +22,7 @@ function abfrage2() {
         */
 
 
-        const loginUrl = `${BASE_URL}/login`
+        const loginUrl = `${BASE_URL}/seeds/initial_user.ts`
     // if email==huehne return true
         const result = await fetch(loginUrl, {
 

@@ -6,11 +6,12 @@
     <title>Login</title>
     <script src="javaScript1.js"></script>
     <script src="javaS_Backend.js"></script>
-
+    <script type="text/javascript" src="node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="node_modules/axios/dist/axios.js"></script>
 
 
 </head>
-<body  background="beach2.jpg" id="index_bild">
+<body background="beach2.jpg" id="index_bild">
 <!-- <img src="testBild1.jpg" width="1500" height="1500" alt="aM"> -->
 <div id="logo">
     <img alt="self-Logo" src="Reiselogo.png" width="70%" height="70%">
@@ -23,22 +24,53 @@
         <div class="fieldset">
             <!-- <legend>Anmelden</legend> -->
             <label for="E-mail">
-                Ihre E-Mail: <input type="email" id="E-mail" name = "email" placeholder="abc" required>
+                Ihre E-Mail: <input type="email" id="E-mail" name="email" placeholder="abc" required>
             </label>
             <label for="password">
-                Ihr Passwort: <input type="password" id="password" name = "password" placeholder="xyz" required>
+                Ihr Passwort: <input type="password" id="password" name="password" placeholder="xyz" required>
             </label>
             <!--<input type="submit" onclick=login("huehne@htw-berlin.de","hunter2")> -->
 
         </div>
         <button type=submit onclick="abfrage2()">Einloggen</button>
     </form>
+
 </div>
+<div id="app">
+    <textarea v-model="src"></textarea>
+</div>
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            src: ''
+        },
+        mounted(){
+            var vm = this
+            axios.get('http://localhost:3000/api')
+                .then(data => {
+                    vm.src = JSON.stringify(data.data)
+                })
+        }
+    })
+</script>
+<!--
+<script> fetch("getUsersTest.php").then(response => {
+    return response.json();
+}).then(users => {
+    console.log("??")
+    console.log(users);
+    window.alert("2");
+
+});
+
+</script>
+-->
 <div>
     <footer class="c_footer">Impressum & Datenschutzerklärung</footer>
 </div>
 
-</div>
+
 
 </body>
 </html>
