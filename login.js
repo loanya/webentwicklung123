@@ -24,7 +24,7 @@ async function login() {
         });
 
         if(response.status===200){
-            console.log("YAY")
+            window.location.href = "http"
         }
 
         if(response.status===401){
