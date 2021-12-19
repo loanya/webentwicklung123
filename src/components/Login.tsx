@@ -1,6 +1,8 @@
-import { useState } from "react";
+import {useState} from "react";
 import "./Login.css";
 import Api from "../services/Api";
+import logo from "../Reiselogo.png"
+
 
 const LabeledInput = ({
                           label,
@@ -26,7 +28,7 @@ const LabeledInput = ({
     );
 };
 
-const Login = ({ onLogin }: { onLogin: () => void }) => {
+const Login = ({onLogin}: { onLogin: () => void }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [hasLoginError, setHasLoginError] = useState(false);
@@ -42,24 +44,34 @@ const Login = ({ onLogin }: { onLogin: () => void }) => {
     };
 
     return (
-        <form onSubmit={submitForm}>
-            <div className={`error ${!hasLoginError && "hidden"}`}>
-                Login fehlgeschlagen. Bitte versuchen Sie es erneut
+        <div>
+            <img src={logo} className="logo" alt="logo" />
+            <div className={"c_index"}>
+                <form onSubmit={submitForm}>
+                    <div className={`error ${!hasLoginError && "hidden"}`}>
+                        Login fehlgeschlagen. Bitte versuchen Sie es erneut
+                    </div>
+                    <div>
+                        <label id="h1_navBar" form="anmelden">Hier anmelden oder registrieren</label>
+                    </div>
+                    <div>
+                        <LabeledInput
+                            label="E-Mail"
+                            type="text"
+                            value={email}
+                            setValue={setEmail}
+                        />
+                        <LabeledInput
+                            label="Passwort"
+                            type="password"
+                            value={password}
+                            setValue={setPassword}
+                        />
+                    </div>
+                    <button type="submit">Einloggen</button>
+                </form>
             </div>
-            <LabeledInput
-                label="E-Mail"
-                type="text"
-                value={email}
-                setValue={setEmail}
-            />
-            <LabeledInput
-                label="Passwort"
-                type="password"
-                value={password}
-                setValue={setPassword}
-            />
-            <button type="submit">Einloggen</button>
-        </form>
+        </div>
     );
 };
 
