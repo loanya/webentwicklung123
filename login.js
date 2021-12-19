@@ -1,50 +1,42 @@
 //fetch('GET http://localhost/')
 //const cors = require('cors')
 
-function login() {
-    window.alert("eqredq")
+async function login() {
     const form = document.querySelector('form')
 
-    const email = document.querySelector('[name=email]')
-    const password = document.querySelector('[name=password]')
+    const email = document.querySelector('[name=email]').value
+    const password = document.querySelector('[name=password]').value
 
-    const BASE_URL = " https://webtechbackend2.herokuapp.com"
+    // const BASE_URL = " https://webtechbackend2.herokuapp.com"
+    const BASE_URL = " http://localhost:3000"
 
-    const login = async (email, password) => {
+    const request_login = async (email, password) => {
 
-    const loginUrl = `${BASE_URL}/login`
+        const loginUrl = "http://localhost:3000/login"
 
-    const response = await fetch(loginUrl, {
-        method: "POST",
-        credentials: "include",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-    });
+        const response = await fetch(loginUrl, {
+            method: "POST",
+            /*credentials: "include",*/
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ "email": email, "password": password }),
+        });
 
-    if(response.status===200){
-        console.log("YAY")
+        if(response.status===200){
+            console.log("YAY")
+        }
+
+        if(response.status===401){
+            console.log("Nay")
+        }
+
+        console.log("End of function")
+
+        return response.status===200;
+
     }
 
-    if(response.status===401){
-        console.log("Nay")
-    }
-
-    return response.status===200;
-
-    }
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        // console.log(email.value)
-        // window.alert("yes!")
-        login()
-        //     .then(wasSuccessfullLogin => {
-        //         if (wasSuccessfullLogin) {
-        //             console.log('it worked');
-        //             //loginError.classList.add('hidden')
-        //         }
-        //     })
-    })
-
+    await request_login(email, password)
 }
+
