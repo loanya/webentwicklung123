@@ -7,12 +7,12 @@ async function login() {
     const email = document.querySelector('[name=email]').value
     const password = document.querySelector('[name=password]').value
 
-    const BASE_URL = "https://webtechbackend2.herokuapp.com"
+    const BASE_URL = "https://webtechbackend2.herokuapp.com/"
     // const BASE_URL = " http://localhost:3000"
 
     const request_login = async (email, password) => {
 
-        const loginUrl = "https://webtechbackend2.herokuapp.com"
+        const loginUrl = "https://webtechbackend2.herokuapp.com/login"
 
         const response = await fetch(loginUrl, {
             method: "POST",
