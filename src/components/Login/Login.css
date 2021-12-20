@@ -1,0 +1,25 @@
+.c_index {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("/public/beach2.jpg");
+    background-color: lightcyan;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: cursive;
+    font-size: 25px;
+}
+
+#h1_navBar {
+    font-size: 45px;
+}
+
+.error {
+    border: 5px solid red;
+}
+
+.hidden {
+    display: none;
+}

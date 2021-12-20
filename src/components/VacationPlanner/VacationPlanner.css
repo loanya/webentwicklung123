@@ -1,0 +1,10 @@
+body {
+    background-color: lightcyan;
+}
+
+.page-container {
+    position: absolute;
+    top: 20vh;
+    height: 80vh;
+    width: 100vw;
+}

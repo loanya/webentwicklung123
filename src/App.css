@@ -1,0 +1,7 @@
+.logo {
+    position: absolute;
+    background-image: url("/public/Reiselogo.png");
+    margin-top: 20px;
+    width: 10%;
+    color: black;
+}
