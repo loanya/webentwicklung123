@@ -6,8 +6,8 @@ class Api {
 
         const response = await fetch(loginUrl, {
             method: "POST",
-            mode: "cors",
-            credentials: "include",
+            /* mode: "cors",
+            credentials: "include", */
             headers: {
                 "Content-Type": "application/json",
             },
