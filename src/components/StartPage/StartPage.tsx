@@ -11,7 +11,7 @@ const StartPage = () => {
             <button><a href="index.html">Logout</a></button>
         </div> &&
         <div className="animatedAirplane">
-            <img src={airplane} width="400" height="300"/>
+            <img src={airplane} width="400" height="300" alt="airplane"/>
         </div>
     );
 };
