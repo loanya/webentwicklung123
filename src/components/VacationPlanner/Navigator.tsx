@@ -7,9 +7,9 @@ const Navigator = ({onWindowSelected}: { onWindowSelected: (windowName: string) 
     return (
         <div className={"flugzeugfenster-container"}>
             <div className={"flugzeugfenster-liste"}>
-                <img src={window1} className={"flugzeugfenster"} onClick={() => onWindowSelected("window1")}/>
-                <img src={window2} className={"flugzeugfenster"} onClick={() => onWindowSelected("window2")}/>
-                <img src={window3} className={"flugzeugfenster"} onClick={() => onWindowSelected("window3")}/>
+                <img src={window1} className={"flugzeugfenster"} onClick={() => onWindowSelected("window1")} alt="flugzeugfenster"/>
+                <img src={window2} className={"flugzeugfenster"} onClick={() => onWindowSelected("window2")} alt="flugzeugfenster"/>
+                <img src={window3} className={"flugzeugfenster"} onClick={() => onWindowSelected("window3")} alt="flugzeugfenster"/>
             </div>
         </div>);
 };

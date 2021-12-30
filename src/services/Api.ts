@@ -19,4 +19,9 @@ class Api {
     }
 }
 
+/*Fetch vacationlist
+einen Request an die DB/ backend  senden und das backend schickt was zurück und damit zeige ich was an
+for jeden ID eintrag den ich sehe mache es in der form die ich angezeigt bekomme javascript loop through json array return html element
+*/
+
 export default Api;
