@@ -1,0 +1,13 @@
+.h1_3{
+    text-align: center;
+    font-family: cursive;
+    font-size: 60px;
+    height: 20%;
+
+}
+
+.logout{
+    display: flex;
+    margin-left: 90%;
+    margin-top: -10%;
+}

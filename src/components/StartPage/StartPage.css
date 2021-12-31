@@ -1,4 +1,24 @@
+
+.h1_1 {
+    text-align: center;
+    font-family: cursive;
+    font-size: 60px;
+    height: 20%;
+
+}
+
 .animatedAirplane {
-    margin-left: 40%;
-    margin-top: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 55px;
+    /*
+    margin-top: 30px; */
+
+}
+
+.logout {
+    display: flex;
+    margin-left: 90%;
+
 }

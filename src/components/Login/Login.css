@@ -8,9 +8,10 @@
     justify-content: center;
     align-items: center;
     color: white;
-    font-family: "Segoe UI";
+    font-family: "Segoe UI", serif;
     font-size: 25px;
 }
+
 
 #h1_navBar {
     font-size: 45px;

@@ -65,8 +65,9 @@ const Login = ({onLogin}: { onLogin: () => void }) => {
                             value={password}
                             setValue={setPassword}
                         />
+
+                        <button type="submit">Einloggen</button>
                     </div>
-                    <button type="submit">Einloggen</button>
                 </form>
             </div>
         </div>
