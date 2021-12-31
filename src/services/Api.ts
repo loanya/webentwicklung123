@@ -1,5 +1,6 @@
-// const BASE_URL = "https://webtechbackend2.herokuapp.com";
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = (process.env.NODE_ENV === "production"
+    ? "https://webtechbackend2.herokuapp.com"
+    : "http://localhost:3000")
 
 
 class Api {
@@ -13,9 +14,19 @@ class Api {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ email, password }),
+            body: JSON.stringify({email, password}),
         });
         return response.status === 200;
+    }
+
+    static async getVacations(): Promise<Response> {
+        const vacationsUrl = `${BASE_URL}/vacations`;
+        const response = await fetch(vacationsUrl, {
+            method: "GET",
+            mode: "cors",
+            credentials: "include",
+        });
+        return response
     }
 }
 
