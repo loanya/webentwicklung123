@@ -20,7 +20,14 @@ const VacationEditPage = () => {
             .then(data => setVacations(data))
     })
     return (
-        <div className={"page-container"}> Vacation Edit Page
+        <div className={"page-container"}>
+            <div className="logout">
+                <button><a href="/public/index.html">Logout</a></button>
+            </div>
+            <div>
+                <h1 className="h1_3">Eine Reise bearbeiten oder löschen</h1>
+            </div>
+
             {vacations.map(vacation =>
                 <div>
                     <div>{vacation.vacation_name}</div>
