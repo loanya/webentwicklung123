@@ -1,6 +1,15 @@
 import "./VacationEdit.css"
 
-const VacationEdit = () => {
+type Vacation = {
+    id: string;
+    vacation_list_id: string;
+    vacation_name: string;
+    country_name: string;
+    start_date: Date;
+    end_date: Date;
+};
+
+const VacationEdit = (props: Vacation) => {
     return (
             <form id="ReiseHinzufügen">
                 <fieldset>

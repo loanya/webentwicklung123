@@ -2,6 +2,7 @@ import "./VacationEditPage.css";
 import {useEffect, useState} from "react";
 
 import Api from "../../../services/Api";
+import VacationEdit from "./VacationEdit";
 
 type Vacation = {
     id: string;
@@ -18,7 +19,7 @@ const VacationEditPage = () => {
         Api.getVacations()
             .then(response => response.json())
             .then(data => setVacations(data))
-    })
+    }, [])
     return (
         <div className={"page-container"}>
             <div className="logout">
@@ -29,10 +30,8 @@ const VacationEditPage = () => {
             </div>
 
             {vacations.map(vacation =>
-                <div>
-                    <div>{vacation.vacation_name}</div>
-                    <div>{vacation.country_name}</div>
-                </div>)}
+                <VacationEdit />)
+            }
         </div>)
 };
 
