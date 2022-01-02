@@ -2,9 +2,9 @@ import "./VacationPlanner.css"
 import React, {useState} from "react";
 import Navigator from "./Navigator";
 import StartPage from "../StartPage/StartPage";
-import VacationCardPage from "./VacationCardPage";
-import VacationAddPage from "./VacationAddPage";
-import VacationEditPage from "./VacationEditPage";
+import VacationCardPage from "./VacationMap/VacationCardPage";
+import VacationAddPage from "./VacationAdd/VacationAddPage";
+import VacationEditPage from "./VacationEdit/VacationEditPage";
 
 const VacationPlanner = () => {
     const [showWindow, setWindowSelected] = useState("");

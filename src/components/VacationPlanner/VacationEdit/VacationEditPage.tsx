@@ -1,7 +1,7 @@
 import "./VacationEditPage.css";
 import {useEffect, useState} from "react";
 
-import Api from "../../services/Api";
+import Api from "../../../services/Api";
 
 type Vacation = {
     id: string;

@@ -12,13 +12,9 @@ const VacationCardPage = () => {
                 <h1 className="h1_2">Ihre Reisekarte</h1>
             </div>
             <div>
-                <VacationMapPage />
+                <VacationMapPage/>
             </div>
-
-
-
         </div>
-
     );
 };
 

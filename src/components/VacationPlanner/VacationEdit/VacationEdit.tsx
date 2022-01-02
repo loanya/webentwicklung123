@@ -1,14 +1,7 @@
-import "./VacationAddPage.css";
+import "./VacationEdit.css"
 
-const VacationAddPage = () => {
+const VacationEdit = () => {
     return (
-        <div className={"page-container"}>
-            <div className="logout">
-                <button><a href="/public/index.html">Logout</a></button>
-            </div>
-            <div>
-                <h1 className="h1_1">Eine Reise hinzufügen</h1>
-            </div>
             <form id="ReiseHinzufügen">
                 <fieldset>
                     <legend className="bearbeitenBox1">Reise hinzufügen</legend>
@@ -36,7 +29,7 @@ const VacationAddPage = () => {
                     <input type="submit" id="buttonInsert"/>
                 </fieldset>
             </form>
-        </div>);
-};
+    )
+}
 
-export default VacationAddPage;
+export default VacationEdit;

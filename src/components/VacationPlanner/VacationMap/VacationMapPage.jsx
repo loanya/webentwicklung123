@@ -1,6 +1,6 @@
 import React, { Component} from "react";
 import {MapContainer, GeoJSON, TileLayer} from "react-leaflet";
-import mapData from "./../../mapdata/countries.json";
+import mapData from "../../../mapdata/countries.json";
 import "leaflet/dist/leaflet.css";
 import "./VacationMapPage.css";
 
@@ -37,9 +37,6 @@ class VacationMapPage extends Component {
                         accessToken={'your.mapbox.access.token'}>
 
                     </TileLayer>
-
-
-
                 </MapContainer>
 
             </div>
