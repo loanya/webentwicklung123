@@ -29,9 +29,9 @@ const VacationEditPage = () => {
                 <h1 className="h1_3">Eine Reise bearbeiten oder löschen</h1>
             </div>
 
-            {vacations.map(vacation =>
-                <VacationEdit />)
-            }
+            {/*{vacations.map(vacation =>*/}
+            {/*    <VacationEdit />)*/}
+            {/*}*/}
         </div>)
 };
 

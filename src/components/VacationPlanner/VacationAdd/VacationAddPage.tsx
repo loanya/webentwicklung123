@@ -10,7 +10,7 @@ const VacationAddPage = () => {
             <div>
                 <h1 className="h1_1">Eine Reise hinzufügen</h1>
             </div>
-            <VacationEdit/>
+            {/*<VacationEdit/>*/}
         </div>);
 };
 
