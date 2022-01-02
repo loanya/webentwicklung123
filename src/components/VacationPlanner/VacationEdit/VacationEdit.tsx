@@ -40,7 +40,7 @@ const VacationEdit = ({props}: { props: Vacation }) => {
                                                            type="date"/>
                 </label><br/>
 
-                <input type="button" name = "löschen" onClick={() => Api.deleteVacations(props.id)} >Reise löschen</input>
+                <input type="button" name = "löschen" value = "löschen" onClick={() => {Api.deleteVacations(props.id)}} />
 
                 <input type="submit" id="buttonInsert"/>
             </fieldset>
