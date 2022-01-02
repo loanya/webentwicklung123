@@ -52,6 +52,15 @@ class Api {
 
         return response
     }
+    static async deleteVacations(id: Vacation["id"]): Promise<Boolean> {
+        const vacationsUrl = `${BASE_URL}/vacations/${id}`;
+        const response = await fetch(vacationsUrl, {
+            method: "DELETE",
+            mode: "cors",
+            credentials: "include",
+        });
+        return response.status === 200;
+    }
 }
 
 /*Fetch vacationlist
