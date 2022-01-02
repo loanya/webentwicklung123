@@ -4,7 +4,6 @@ import mapData from "../../../mapdata/countries.json";
 import "leaflet/dist/leaflet.css";
 import "./VacationMapPage.css";
 import Api from "../../../services/Api";
-import L from 'leaflet'
 
 const VacationMapPage = () => {
 

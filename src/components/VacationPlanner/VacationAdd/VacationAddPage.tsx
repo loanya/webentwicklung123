@@ -1,17 +1,6 @@
 import "./VacationAddPage.css";
-import VacationEdit from "../VacationEdit/VacationEdit";
 import VacationAdd from "./VacationAdd";
-import {useEffect, useState} from "react";
-import Api from "../../../services/Api";
 
-type Vacation = {
-    id: string;
-    vacation_list_id: string;
-    vacation_name: string;
-    country_name: string;
-    start_date: Date;
-    end_date: Date;
-};
 
 const VacationAddPage = () => {
 

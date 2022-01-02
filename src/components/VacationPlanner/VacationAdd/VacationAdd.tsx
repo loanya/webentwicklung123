@@ -1,6 +1,6 @@
 import "./VacationAdd.css"
 import Api from "../../../services/Api";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 type Vacation = {
     id: string;
@@ -63,20 +63,20 @@ const VacationAdd = () => {
                     label="Reisename"
                     type="text"
                     value={vacations.vacation_name}
-                    setValue={(val) => setVacations({...vacations, vacation_name:val})}
+                    setValue={(val) => setVacations({...vacations, vacation_name: val})}
                 />
                 <LabeledInput
                     label="Das Reiseland"
                     type="text"
                     value={vacations.country_name}
-                    setValue={(val) => setVacations({...vacations, country_name:val})}
+                    setValue={(val) => setVacations({...vacations, country_name: val})}
                 />
 
                 <LabeledInput
                     label="Start Datum"
                     type="date"
                     value={vacations.start_date.toISOString().substring(0, 10)}
-                    setValue={(val) => setVacations({...vacations, start_date:new Date(val)})}
+                    setValue={(val) => setVacations({...vacations, start_date: new Date(val)})}
                 />
                 <LabeledInput
                     label="End Datum"
