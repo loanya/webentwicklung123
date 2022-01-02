@@ -47,7 +47,7 @@ class Api {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ vacation }),
+            body: JSON.stringify(vacation),
         });
 
         return response

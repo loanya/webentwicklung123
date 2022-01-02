@@ -1,4 +1,6 @@
 import "./VacationAdd.css"
+import Api from "../../../services/Api";
+import {useEffect, useState} from "react";
 
 type Vacation = {
     id: string;
@@ -9,37 +11,82 @@ type Vacation = {
     end_date: Date;
 };
 
-const VacationAdd = () => {
+const LabeledInput = ({
+                          label,
+                          type,
+                          value,
+                          setValue,
+                      }: {
+    label: string;
+    type: string;
+    value: string;
+    setValue: (newValue: string) => void;
+}) => {
     return (
-        <form id="ReiseHinzufügen">
+        <label>
+            {label}:
+            <input
+                type={type}
+                required
+                value={value}
+                onChange={(event) => setValue(event.target.value)}
+            />
+        </label>
+    );
+};
+
+const VacationAdd = () => {
+
+    const [vacations, setVacations] = useState<Vacation>({
+        id: "null",
+        vacation_list_id: "863915d7-eea2-43c8-ae5a-1fb43c329553",
+        vacation_name: "null",
+        country_name: "null",
+        start_date: new Date(),
+        end_date: new Date()
+    })
+
+
+    const submitForm = (event: React.FormEvent) => {
+        event.preventDefault();
+
+        Api.setVacations(vacations).then(() => {
+            console.log("Vacation Added")
+        })
+    };
+
+    return (
+        <form id="ReiseHinzufügen" onSubmit={submitForm}>
             <fieldset>
                 <legend className="bearbeitenBox1">Reise hinzufügen</legend>
-                <label htmlFor="Name">
-                    Der Name ihrer Reise: <input className="field" name="ld" id="Name" placeholder="abc" required/>
-                </label><br/>
-                <label>
-                    Das Reiseland:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; <input id="reiseland" type="search"
-                                                                                          list="lL"
-                                                                                          required/>
-                    <datalist id="lL">
-                    </datalist>
-                </label><br/>
-                <label htmlFor="Startdatum">
-                    Ihr Startdatum:&nbsp; &nbsp; &nbsp; &nbsp;&ensp; &ensp; <input className="field" name="SD"
-                                                                                   id="Startdatum"
-                                                                                   placeholder="xyz"
-                                                                                   required type="date"/>
-                </label><br/>
-                <label htmlFor="Enddatum">
-                    Ihr Reiseenddatum: &ensp;&ensp; <input className="field" name="ED" id="Enddatum" placeholder="xyz"
-                                                           required
-                                                           type="date"/>
-                </label><br/>
+                <LabeledInput
+                    label="Reisename"
+                    type="text"
+                    value={vacations.vacation_name}
+                    setValue={(val) => setVacations({...vacations, vacation_name:val})}
+                />
+                <LabeledInput
+                    label="Das Reiseland"
+                    type="text"
+                    value={vacations.country_name}
+                    setValue={(val) => setVacations({...vacations, country_name:val})}
+                />
+
+                <LabeledInput
+                    label="Start Datum"
+                    type="date"
+                    value={vacations.start_date.toISOString().substring(0, 10)}
+                    setValue={(val) => setVacations({...vacations, start_date:new Date(val)})}
+                />
+                <LabeledInput
+                    label="End Datum"
+                    type="date"
+                    value={vacations.end_date.toISOString().substring(0, 10)}
+                    setValue={(val) => setVacations({...vacations, end_date: new Date(val)})}
+                />
                 <input type="submit" id="buttonInsert"/>
             </fieldset>
         </form>
-
-
     )
 }
 

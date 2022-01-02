@@ -15,18 +15,6 @@ type Vacation = {
 
 const VacationAddPage = () => {
 
-    const [vacations, setVacations] = useState<Vacation>({
-        id: "null",
-        vacation_list_id: "null",
-        vacation_name: "null",
-        country_name: "null",
-        start_date: new Date(),
-        end_date: new Date()    })
-    useEffect(() => {
-        Api.setVacations(vacations)
-            .then(response => response.json())
-            .then(data => setVacations(data))
-    }, [])
     return (
         <div className={"page-container"}>
             <div className="logout">
