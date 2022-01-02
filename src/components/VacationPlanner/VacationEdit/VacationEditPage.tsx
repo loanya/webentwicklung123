@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import Api from "../../../services/Api";
 import VacationEdit from "./VacationEdit";
 
+
 type Vacation = {
     id: string;
     vacation_list_id: string;
@@ -30,7 +31,7 @@ const VacationEditPage = () => {
             </div>
 
             {vacations.map(vacation =>
-                <VacationEdit />)
+                <VacationEdit props={vacation}/>)
             }
         </div>)
 };
